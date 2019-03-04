@@ -18,6 +18,7 @@ build: build-base
 # - Mounts sockets & files into container needed for X11 and pulseaudio (not user about devices?)
 # - Mounts fake home directory (from data/${app}/HOME)
 run: build ensure-data-directory-belongs-to-user
+	xhost local:root
 	docker run --rm \
 		-v ${XSOCK}:${XSOCK} \
 		-v /etc/machine-id:/etc/machine-id \
