@@ -1,7 +1,7 @@
 FROM debian
 ARG UID
 
-RUN apt-get update && apt-get install -y xorg numix-gtk-theme pulseaudio libgl1-mesa-dri libgl1-mesa-glx sudo
+RUN apt-get update && apt-get install -y --no-install-recommends xorg numix-gtk-theme pulseaudio libgl1-mesa-dri libgl1-mesa-glx sudo
 
 ENV HOME /home/user
 RUN echo $UID
