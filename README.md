@@ -19,3 +19,19 @@ Those were my first steps into desktop applications inside of containers
 ### Why is google chrome started with `--no-sandbox`
 I am currently investigating how to properly start chrome.
 Using `--no-sandbox` is not a good solution.
+
+### Running an editor this way makes no sense
+You are right, running an editor using `make run` makes no sense - Let `make build app=APP_NAME`
+build the image and launch the editor using the following command:
+
+```bash
+$ docker run --rm \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-v $(pwd):/current \
+	-e "DISPLAY=$DISPLAY" \
+	j6s/vscode \
+	code --wait /current
+```
+
+This will mount the current directory as `/current`.
+PHPStorm works in a similar fashion.
