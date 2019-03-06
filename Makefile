@@ -5,8 +5,8 @@ DIR=$(shell pwd)
 
 ensure-data-directory-belongs-to-user:
 	mkdir -p data/${app}/HOME/
-	chown -R ${UID} data/
-	chmod -R 755 data/
+	chown -R ${UID} data/${app}
+	chmod -R 755 data/${app}
 
 build-base:
 	docker build -t 'j6s/x11-base' --build-arg "UID=${UID}" x11-base/
