@@ -27,6 +27,8 @@ run: build ensure-data-directory-belongs-to-user
 		-v /dev/snd:/dev/snd \
 		--device /dev/snd \
 		-v ${DIR}/data/${app}/HOME:/home/user \
+		-v /run/user/${UID}/bus:/run/user/${UID}/bus \
+		-e "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/${UID}/bus" \
 		-e "DISPLAY=${DISPLAY}" \
 		--name ${app} \
 		'j6s/${app}' \
