@@ -25,6 +25,7 @@ run: build ensure-data-directory-belongs-to-user
 		-v /run/user/${UID}/pulse:/run/user/${UID}/pulse \
 		-v /dev/shm:/dev/shm \
 		-v /dev/snd:/dev/snd \
+		--device /dev/snd \
 		-v ${DIR}/data/${app}/HOME:/home/user \
 		-e "DISPLAY=${DISPLAY}" \
 		--name ${app} \
