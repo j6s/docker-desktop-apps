@@ -24,8 +24,8 @@ run: build ensure-data-directory-belongs-to-user
 		-v /etc/machine-id:/etc/machine-id \
 		-v /run/user/${UID}/pulse:/run/user/${UID}/pulse \
 		-v /dev/shm:/dev/shm \
+		-v /dev/snd:/dev/snd \
 		-v ${DIR}/data/${app}/HOME:/home/user \
-		--device /dev/snd \
 		-e "DISPLAY=${DISPLAY}" \
 		--name ${app} \
 		'j6s/${app}' \
